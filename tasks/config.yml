@@ -1,0 +1,26 @@
+---
+- name: Set the Supervisor configuration file
+  template:
+    src: supervisord.conf.j2
+    dest: /etc/supervisor/supervisord.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: "Restart Supervisor"
+
+- name: Set the Supervisor defaults file
+  template:
+    src: default/supervisor.j2
+    dest: /etc/default/supervisor
+    owner: root
+    group: root
+    mode: 0644
+  notify: "Restart Supervisor"
+
+- name: Set the Supervisor logrotate file
+  template:
+    src: logrotate/supervisor.j2
+    dest: /etc/logrotate.d/supervisor
+    owner: root
+    group: root
+    mode: 0644

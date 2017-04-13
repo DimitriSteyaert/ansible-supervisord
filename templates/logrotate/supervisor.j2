@@ -1,0 +1,9 @@
+{{ ansible_managed|comment }}
+
+/var/log/supervisor/supervisord*.log {
+  weekly
+  missingok
+  rotate 12
+  compress
+  notifempty
+}

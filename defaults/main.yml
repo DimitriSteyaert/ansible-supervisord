@@ -1,0 +1,15 @@
+---
+supervisor_state: present
+supervisor_purge: no
+supervisor_manage_conf: false
+
+supervisor_http_server: false
+supervisor_http_host: 0.0.0.0
+supervisor_http_port: 9001
+supervisor_http_username: user
+supervisor_http_password: pass
+
+supervisor_programs: []
+supervisor_listeners: []
+supervisor_groups: []
+supervisor_configs: []

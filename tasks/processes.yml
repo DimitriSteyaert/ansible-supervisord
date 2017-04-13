@@ -1,0 +1,37 @@
+---
+- name: Set the Supervisor programs
+  template:
+    src: conf.d/program.conf.j2
+    dest: "/etc/supervisor/conf.d/program_{{ item.name }}.conf"
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ supervisor_programs }}"
+  notify: "Restart Supervisor"
+
+- name: Set the Supervisor eventlisteners
+  template:
+    src: conf.d/listener.conf.j2
+    dest: "/etc/supervisor/conf.d/listener_{{ item.name }}.conf"
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ supervisor_listeners }}"
+  notify: "Restart Supervisor"
+
+- name: Set the Supervisor groups
+  template:
+    src: conf.d/group.conf.j2
+    dest: "/etc/supervisor/conf.d/group_{{ item.name }}.conf"
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ supervisor_groups }}"
+  notify: "Restart Supervisor"
+
+- name: Manage the Supervisor configs
+  supervisorctl:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    config: "{{ item.config|default('') }}"
+  with_items: "{{ supervisor_configs }}"

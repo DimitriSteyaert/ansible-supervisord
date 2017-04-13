@@ -1,0 +1,6 @@
+---
+- name: Install Supervisord
+  apt:
+    name: supervisor
+    state: "{{ supervisor_state }}"
+    purge: "{{ supervisor_purge }}"

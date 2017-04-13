@@ -1,0 +1,9 @@
+{{ ansible_managed|comment }}
+
+[group:{{ item.name }}]
+{% if item.programs is defined %}
+programs={{ item.programs }}
+{% endif %}
+{% if item.priority is defined %}
+priority={{ item.priority }}
+{% endif %}
