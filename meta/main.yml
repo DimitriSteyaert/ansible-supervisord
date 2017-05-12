@@ -1,0 +1,32 @@
+---
+
+dependencies: []
+
+galaxy_info:
+  author: 'Dimitri Steyaert'
+  description: 'Install Supervisord and optionally manage the programs, listeners and groups'
+  company: 'Steyaert Web Services'
+  license: 'MIT'
+  min_ansible_version: '1.9'
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+        - yakkety
+        - zesty
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+  galaxy_tags:
+    - development
+    - supervisor
+
+ansigenome_info:
+  galaxy_id: 'DimitriSteyaert'
+  travis: False
+  synopsis: |
+    This role installs the Supervisor process control system and optionally lets you manage its programs, listeners and groups. The option to enable the web gui is also included.
+  usage: |
+    By default this module just manages the Supervisor installation through the system's package manager. The management of its programs, listeners and groups via Ansible can be optionally enabled.
